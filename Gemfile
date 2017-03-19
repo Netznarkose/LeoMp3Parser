@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'nokogiri'
 group :test do
   gem 'rspec'
 end
 
 group :test, :develpment do
-  gem 'nokogiri'
   gem 'pry-byebug'
 end
