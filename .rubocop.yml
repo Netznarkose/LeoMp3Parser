@@ -1,0 +1,48 @@
+# rubocop settings:
+
+Metrics/LineLength:
+  Max: 120
+
+Style/WordArray:
+  Description: 'Use %w or %W for arrays of words.'
+  EnforcedStyle: brackets
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/AlignHash:
+  EnforcedColonStyle: table
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/EmptyMethod:
+  Enabled: false
+
+# Block Syntax Rules
+Style/BlockDelimiters:
+  Enabled: false
+  Description: >-
+    Avoid using {...} for multi-line blocks
+    Prefer {...} over do...end for single-line blocks.
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#single-line-blocks'
+
+# Disable spacing around operators
+Style/SpaceAroundOperators:
+  Enabled: false
+  Description: >-
+    spacing around operators is disabled
+    take care for yourself that fractions are written without whitespaces (1/4)
+    and math operations with whitespaces (3 * 3)
+
+
+
