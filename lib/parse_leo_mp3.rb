@@ -2,18 +2,23 @@ require 'pry-byebug'
 require 'nokogiri'
 require 'open-uri'
 class ParseLeoMp3
-  attr_accessor :language, :term
-  attr_reader :url
-  def initialize(input_hash = {})
-    @language = input_hash[:language] || 'ende'
-    @term = input_hash[:term] || 'hello'
-    @url = compose_query(@language, @term)
+  # attr_accessor :language, :term
+  # attr_reader :url
+  # def initialize(input_hash = {})
+  #   @language_and_term = input_hash || { language: 'ende', term: 'hello' }
+  #   @url = compose_query(@language, @term)
+  # end
+
+  # write an input-validation
+  def get_audio_url(language_and_term)
+    url = compose_query(language_and_term)
+    compose_url(url)
   end
 
-  def compose_query(language = 'ende', search_term = 'hello')
-    url = 'https://dict.leo.org/dictQuery/m-vocab/' << language
+  def compose_query(language_and_term)
+    url = 'https://dict.leo.org/dictQuery/m-vocab/' << language_and_term[:language]
     url << '/query.xml?tolerMode=nof&lp=ende&lang=en&rmWords=off&rmSearch=on&directN=0&search='
-    url << search_term
+    url << language_and_term[:term]
     url << '&searchLoc=0&resultOrder=basic&multiwordShowSingle=on&sectLenMax=16'
   end
 
