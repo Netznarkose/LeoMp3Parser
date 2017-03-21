@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
-  s.name        = 'parse_leo_mp3'
-  s.version     = '0.0.01'
+  s.name        = 'leo_mp3_parser'
+  s.version     = '0.0.04'
   s.date        = '2017-03-19'
   s.summary     = "identifies urls to audiofiles on leo dictionary"
   s.description = "A simple leo mp3 parser"
