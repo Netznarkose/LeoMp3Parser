@@ -1,7 +1,8 @@
-# LeoMp3Parser
+# LeoMp3Parser  
+Identifies URL's to Audiofiles on Leo Dictionary (https://dict.leo.org/englisch-deutsch/)
 
 
-# Development
+## Development
 
 Start by installing bundler:
 
