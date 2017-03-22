@@ -27,20 +27,23 @@ class LeoMp3Parser
     url << '&searchLoc=0&resultOrder=basic&multiwordShowSingle=on&sectLenMax=16'
   end
 
-  def cluster_fuck
-    raise StandardError, 'Something went wrong'
+  def raise_customized_exception
+    raise StandardError, 'Nokogiri throws an exception'
   end
+
   def instantiate_nokogiri_object(url)
     Nokogiri::XML(open(url))
   rescue
-    cluster_fuck
+    raise_customized_exception
   end
 
   def parse_audio_identifier(url)
     instantiate_nokogiri_object(url).at_css('pron').first[1]
+  rescue
+    raise_customized_exception
   end
 
   def compose_url(url)
-    return "https://dict.leo.org/media/audio/#{parse_audio_identifier(url)}.mp3"
+    "https://dict.leo.org/media/audio/#{parse_audio_identifier(url)}.mp3"
   end
 end

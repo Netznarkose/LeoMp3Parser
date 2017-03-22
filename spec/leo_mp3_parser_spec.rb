@@ -38,7 +38,7 @@ RSpec.describe 'leo_mp3_parser' do
         end
       end
       it 'raises an exception when url is false' do
-        expect { leo_mp3_parser.instantiate_nokogiri_object(false_url) }.to raise_error(StandardError, 'Something went wrong')
+        expect { leo_mp3_parser.instantiate_nokogiri_object(false_url) }.to raise_error(StandardError, 'Nokogiri throws an exception')
       end
     end
     describe '.parse_audio_identifier' do
@@ -46,7 +46,7 @@ RSpec.describe 'leo_mp3_parser' do
         expect(leo_mp3_parser.parse_audio_identifier(correct_url)).to eq('iEUdzIwxBbMpDuh0x2yajA')
       end
       it 'raises an exception when url is false' do
-        expect{ leo_mp3_parser.parse_audio_identifier(false_url) }.to raise_error(StandardError, 'Something went wrong')
+        expect{ leo_mp3_parser.parse_audio_identifier(false_url) }.to raise_error(StandardError, 'Nokogiri throws an exception')
       end
     end
     describe '.compose_url' do
