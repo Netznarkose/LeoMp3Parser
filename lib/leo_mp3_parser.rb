@@ -1,3 +1,4 @@
+require 'pry-byebug'
 require 'nokogiri'
 require 'open-uri'
 class LeoMp3Parser
@@ -40,6 +41,6 @@ class LeoMp3Parser
   end
 
   def compose_url(url)
-    "https://dict.leo.org/media/audio/#{parse_audio_identifier(url)}.mp3"
+    return "https://dict.leo.org/media/audio/#{parse_audio_identifier(url)}.mp3"
   end
 end
