@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'leo_mp3_parser'
-  s.version     = '0.0.07'
-  s.date        = '2017-03-19'
+  s.version     = '0.0.08'
+  s.date        = '2017-03-27'
   s.summary     = "identifies urls to audiofiles on leo dictionary"
   s.description = "A simple leo mp3 parser"
   s.authors     = ["Maximilian Maintz, alias: Netznarkose"]
