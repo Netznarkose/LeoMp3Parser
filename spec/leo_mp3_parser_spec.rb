@@ -6,7 +6,7 @@ RSpec.describe 'leo_mp3_parser' do
   let(:false_url) { 'false_url' }
   let(:language_and_term) { { language: 'ende', term: 'hello' } }
 
-  context "public methods" do
+  context 'public methods' do
     it '#get_audio_url' do
       expect(leo_mp3_parser).to respond_to(:get_audio_url).with(1).argument
     end
@@ -21,7 +21,7 @@ RSpec.describe 'leo_mp3_parser' do
         expect { leo_mp3_parser.send(:validate_arguments, 'not a hash') }.to raise_error(ArgumentError, 'Argument must be a Hash')
       end
       it 'raises an error when keys are not :language and :term' do
-        expect { leo_mp3_parser.send(:validate_arguments, number: 'ende', color: 'hello' ) }.to raise_error(ArgumentError, 'Keys must be :language and :term')
+        expect { leo_mp3_parser.send(:validate_arguments, number: 'ende', color: 'hello') }.to raise_error(ArgumentError, 'Keys must be :language and :term')
       end
       it 'raises an error when values are not Strings' do
         expect { leo_mp3_parser.send(:validate_arguments, language: 23, term: :blue) }.to raise_error(ArgumentError, 'Values must be Strings')
@@ -53,7 +53,7 @@ RSpec.describe 'leo_mp3_parser' do
           expect(leo_mp3_parser.send(:parse_audio_identifier, correct_url)).to eq('iEUdzIwxBbMpDuh0x2yajA')
         end
         it 'raises an exception when url is false' do
-          expect{ leo_mp3_parser.send(:parse_audio_identifier, false_url) }.to raise_error(StandardError, 'Nokogiri throws an exception')
+          expect { leo_mp3_parser.send(:parse_audio_identifier, false_url) }.to raise_error(StandardError, 'Nokogiri throws an exception')
         end
       end
       describe '.compose_url' do
