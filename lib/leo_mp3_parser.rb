@@ -11,9 +11,10 @@ class LeoMp3Parser
 
   def validate_arguments(language_and_term)
     raise ArgumentError, 'Argument must be a Hash' unless language_and_term.is_a? Hash
-    unless [:language, :term].all? { |key| language_and_term.key? key }
+    unless %i[language term].all? { |key| language_and_term.key? key }
       raise ArgumentError, 'Keys must be :language and :term'
     end
+
     language_and_term.values.map do |value|
       raise ArgumentError, 'Values must be Strings' unless value.is_a? String
     end
@@ -38,13 +39,13 @@ class LeoMp3Parser
 
   def parse_audio_identifier(url)
     instantiate_nokogiri_object(url).at_css('pron').first[1]
-  rescue
+  rescue StandardError
     raise_customized_exception
   end
 
   def instantiate_nokogiri_object(url)
     Nokogiri::XML(open(url))
-  rescue
+  rescue StandardError
     raise_customized_exception
   end
 
